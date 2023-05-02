@@ -84,10 +84,13 @@ const AppConfig: AppConfig = {
   about: {
     imageURL: "/assets/alex.png",
     title: "Alexander Cruz",
-    subtitle: "Founder",
-    text: `Born to be a founder. All the various skills I've acquired, the books I've read, and the jobs I've accepted. All have been deliberate towards my ideal role as a founder. The third time is a charm. I strongly believe this will be the case on my third startup, rodeo.`,
+    subtitle: "Senior iOS Developer",
+    text: `Social networks, marketplaces, SAAS products, and crypto-wallets are some of the various types of apps I have built or worked on since beginning my journey as an iOS developer in 2015.`,
     seeMoreText: [
-      `Favorite saying: Gradatim Ferociter | Step by Step Ferociously.`,
+      `Most recent accomplishments`, 
+      `When the pandemic began, a few colleagues and I wanted to help our community get the essential products they need at home. We felt that with our engineering and product development abilities and one of our friend’s connections to wholesalers, we could do our part to help during these unprecedented times. So, we quickly built an on-demand delivery service that provided essential supplies to residential and commercial customers. The results: We went viral locally and generated ~$700k in revenue in under a year. Everyone was pleased with our service, and that was a fulfilling experience to be a part of. `,
+      `Currently, I work at LTK as a Senior iOS Developer. A global creator commerce platform, LTK empowers thousands of digital lifestyle influencers to achieve economic success. My current project focuses on overhauling our legacy onboarding and authentication technology by leveraging modern authentication best practices to simplify new-user registration with various IDPs (FB, Gmail, Apple login, etc.) while maintaining the highest standards of modern security practices.  `,
+      `Outside work, I spend most of my time learning about the latest Swift capabilities, decision-making, and writing.`
     ]
   },
   pages: {
