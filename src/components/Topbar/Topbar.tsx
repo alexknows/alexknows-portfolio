@@ -8,7 +8,7 @@ import {
   Theme
 } from "@material-ui/core";
 import LanguageIcon from "@material-ui/icons/Language";
-import AndroidIcon from "@material-ui/icons/Android";
+import AndroidIcon from "@material-ui/icons/AndroidSharp";
 import AppleIcon from "@material-ui/icons/Apple";
 import { NavLink as RouterLink } from "react-router-dom";
 
