@@ -53,12 +53,10 @@ const SectionBuilder = (props: SectionBuilderProps) => {
   const [seeMore, setSeeMore] = useState(false);
   const [showedLines, setShowedLines] = useState(1);
   useEffect(() => {
-    if (seeMore) {
-      setShowedLines(props.section.seeMoreMetadata?.text?.length as number);
-    } else {
-      setShowedLines(1);
+    if (props.section.seeMoreMetadata?.text?.length) {
+      setShowedLines(props.section.seeMoreMetadata.text.length);
     }
-  }, [seeMore]);
+  }, [props.section.seeMoreMetadata?.text?.length]);
   const classes = useStyles();
   const configClasses = props.styles();
   const section = props.section;
@@ -88,9 +86,9 @@ const SectionBuilder = (props: SectionBuilderProps) => {
     const { title, subtitle, headerImage, link } = section;
     const headerImgPath = require(`../../assets/images/${section.assetsFolderName}/${headerImage}`);
     return (
-      <Grid spacing={2} container justify="center" direction="column">
+      <Grid spacing={2} container justifyContent="center" direction="column">
         <Grid item>
-          <a href={link} target="_blank">
+          <a href={link} target="_blank" rel="noreferrer">
             <img
               className={classes[section.headerImageType]}
               src={headerImgPath}
@@ -120,7 +118,7 @@ const SectionBuilder = (props: SectionBuilderProps) => {
             style={{ textTransform: "none" }}
             className={configClasses.seeMoreButton}
           >
-            <a
+            <button
               onClick={event => {
                 event.preventDefault();
                 setSeeMore(!seeMore);
@@ -129,7 +127,7 @@ const SectionBuilder = (props: SectionBuilderProps) => {
               {seeMore
                 ? seeMoreMetada.toggledText
                 : seeMoreMetada.unToggledText}
-            </a>
+            </button>
           </Button>
         ) : (
           ""

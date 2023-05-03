@@ -3,10 +3,6 @@ import { palette } from "./palette";
 import { typography } from "./typography";
 import { overrides } from "./overrides";
 
-declare module createTheme {
-  interface Theme {}
-  interface ThemeOptions {}
-}
 const theme = createTheme({
   palette: palette,
   typography: typography,

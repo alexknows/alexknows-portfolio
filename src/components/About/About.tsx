@@ -70,14 +70,14 @@ const About = (props: any) => {
             style={{ textTransform: "none" }}
             className={classes.seeMoreButton}
           >
-            <a
+            <button
               onClick={event => {
                 event.preventDefault();
                 setSeeMore(!seeMore);
               }}
             >
               {seeMore ? "see less" : "see more"}
-            </a>
+            </button>
           </Button>
         </Grid>
       </Grid>

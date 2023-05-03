@@ -50,12 +50,12 @@ export interface Section {
   seeMoreMetadata?: SeeMoreMetadata;
   link: string;
 }
-export interface AppConfig {
+export interface AppConfigInterface {
   skills: Skill[];
   about: About;
   pages: Pages;
 }
-const AppConfig: AppConfig = {
+const AppConfig: AppConfigInterface = {
   skills: [
     {
       years: 11,

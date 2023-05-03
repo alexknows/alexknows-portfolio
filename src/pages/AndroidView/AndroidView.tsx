@@ -1,5 +1,5 @@
 import React from "react";
-import { Zoom, Grid } from "@material-ui/core";
+import { Zoom } from "@material-ui/core";
 import AppConfig from "../../config/AppConfiguration";
 import { SectionBuilder } from "../../components";
 
