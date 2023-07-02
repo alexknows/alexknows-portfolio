@@ -465,50 +465,6 @@ const AppConfig: AppConfigInterface = {
               `If you're having issues with the app, or have some feedback, please send us an email at help@spend.com`
             ]
           }
-        },
-        {
-          link: "https://www.youtube.com/watch?v=OLQFRh2TpBI",
-          headerImageType: "square",
-          assetsFolderName: "IOS/Daps Rocks",
-          imagesType: "multiple",
-          title: "Daps Rocks",
-          subtitle: "Stranger-free Marketplace",
-          headerImage: "logo.png",
-          images: [
-            "1.jpg",
-            "2.jpg"
-          ],
-          text: `Finally! The days of dealing with people you do not know or trust are over. Build your personalized marketplace according to your likes
-          and needs from people you trust and select. With all the conveniences of bargaining on a mobile app but without the inevitable worries of
-          a stranger exchange marketplace, Daps is a friend exchange marketplace where you see and receive offers and services from only people you know and trust.
-          `,
-          seeMoreMetadata: {
-            type: SeeMore.text,
-            toggledText: "less",
-            unToggledText: "more",
-            text: [
-              `Download and start organizing your personalized marketplace built on trust.`,
-              `The experience is now in your hands.`
-            ]
-          }
-        },
-        {
-          link: "https://www.youtube.com/watch?v=OLQFRh2TpBI",
-          headerImageType: "square",
-          assetsFolderName: "IOS/Jin",
-          imagesType: "multiple",
-          title: "Jin",
-          subtitle: "Jin is a dating app that uses geo location to match users in a 60 mile radius.",
-          headerImage: "logo.png",
-          images: [
-            "1.jpg",
-            "2.jpg",
-            "3.jpg",
-            "4.jpg",
-            "5.jpg"
-          ],
-          text: `Jin is a dating app that uses the iphone geo location to match users in a 60 mile radius.
-          `,
         }
       ]
     }
