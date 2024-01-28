@@ -83,8 +83,8 @@ const AppConfig: AppConfigInterface = {
   ],
   about: {
     imageURL: "/assets/alex.png",
-    title: "Alexander Cruz",
-    subtitle: "Senior iOS Developer",
+    title: "Alex Cruz",
+    subtitle: "Technical Lead with a Comprehensive Background in Mobile Development",
     text: `Social networks, marketplaces, SAAS products, and crypto-wallets are some of the various types of apps I have built or worked on since beginning my journey as an iOS developer in 2015.`,
     seeMoreText: [
       `Most recent accomplishments`, 
