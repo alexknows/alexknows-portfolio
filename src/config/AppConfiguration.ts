@@ -92,7 +92,7 @@ const AppConfig: AppConfigInterface = {
       `• Mentored for three years by an industry pioneer who brought to market a revolutionary product still used today.`,
       `• Overhauled the onboarding layer of the world's largest creator commerce platform with a GMV > $12 billion and tens of millions of users.`,
       `• Built from scratch, 3 iPad applications used by aviation companies such as JetBlue and Canada Air.`,
-      `• Built from scratch two crypto-wallets with a flow of value in the tens of millions. `,
+      `• Developed from scratch two crypto-wallets with a flow of value in the tens of millions. `,
       `• Bootstrapped a startup to ~$1 million in revenue within a year and was invited to pitch Y Combinator and Techstars.`,
       `Most recent accomplishments`, 
       `When the pandemic began, a few colleagues and I wanted to help our community get the essential products they need at home. We felt that with our engineering and product development abilities and one of our friend’s connections to wholesalers, we could do our part to help during these unprecedented times. So, we quickly built an on-demand delivery service that provided essential supplies to residential and commercial customers. The results: We went viral locally and generated ~$1m in revenue in under a year. Everyone was pleased with our service, and that was a fulfilling experience to be a part of. `,
