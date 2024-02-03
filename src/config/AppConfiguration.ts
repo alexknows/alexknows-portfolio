@@ -91,7 +91,7 @@ const AppConfig: AppConfigInterface = {
       `• Raised ~$400k seed round and launched a used-good local marketplace. `,
       `• Mentored for three years by an industry pioneer who brought to market a revolutionary product still used today.`,
       `• Overhauled the onboarding layer of the world's largest creator commerce platform with a GMV > $12 billion and tens of millions of users.`,
-      `• Built from scratch, 3 iPad applications used by aviation companies such as JetBlue and Canada Air.`,
+      `• Built from scratch, 3 iPad applications used by aviation companies such as JetBlue and Air Canada.`,
       `• Developed from scratch two crypto-wallets with a flow of value in the tens of millions. `,
       `• Bootstrapped a startup to ~$1 million in revenue within a year and was invited to pitch Y Combinator and Techstars.`,
       `Most recent accomplishments`, 
