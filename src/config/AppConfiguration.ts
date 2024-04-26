@@ -63,7 +63,7 @@ const AppConfig: AppConfigInterface = {
       color: "#ff9e10"
     },
     {
-      years: 9,
+      years: 10,
       text: "iOS",
       color: "#000000",
       route: "ios"
@@ -258,6 +258,18 @@ const AppConfig: AppConfigInterface = {
     ios: {
       styles: makeStyles((theme: Theme) => iosSectionStyles),
       sections: [
+        {
+          link: "",
+          headerImageType: "square",
+          assetsFolderName: "IOS/Magnus",
+          imagesType: "multiple",
+          title: "Magnus Poker AI (2024)",
+          subtitle: "Range Construction Trainer",
+          headerImage: "logo.jpg",
+          images: ["1.jpg", "2.jpg", "3.jpg", "4.jpg"],
+          text: `Magnus will help you build and refine a robust hand reading and decision making mental framework. It will help you go 
+          beyond the low hanging fruits to reach the next-level of your development by helping you improve at the margins.`
+        },
         {
           link:
             "https://apps.apple.com/tt/app/delyte/id1497012566?ign-mpt=uo%3D2",
