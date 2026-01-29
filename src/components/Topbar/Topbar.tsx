@@ -10,6 +10,7 @@ import {
 import LanguageIcon from "@material-ui/icons/Language";
 import AndroidIcon from "@material-ui/icons/AndroidSharp";
 import AppleIcon from "@material-ui/icons/Apple";
+import MemoryIcon from "@material-ui/icons/Memory";
 import { NavLink as RouterLink } from "react-router-dom";
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -57,6 +58,11 @@ const Topbar = () => {
             <RouterLink activeClassName={classes.active} to="/web">
               <IconButton color="secondary" aria-label="delete">
                 <LanguageIcon className={classes.icon} />
+              </IconButton>
+            </RouterLink>
+            <RouterLink activeClassName={classes.active} to="/ai">
+              <IconButton color="secondary" aria-label="AI projects">
+                <MemoryIcon className={classes.icon} />
               </IconButton>
             </RouterLink>
           </div>

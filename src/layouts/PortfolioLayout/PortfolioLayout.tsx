@@ -26,9 +26,9 @@ const useStyles = makeStyles((theme: Theme) => ({
 const PortfolioLayout = (props: any) => {
   const { children } = props;
   const history = useHistory();
-  const { rootStyles, containerStyles } = (PagesConfig as any)[
-    history.location.pathname.slice(1)
-  ];
+  const pathKey = history.location.pathname.slice(1) || "ios";
+  const pageConfig = (PagesConfig as any)[pathKey];
+  const { rootStyles = {}, containerStyles = {} } = pageConfig || {};
   const classes = useStyles();
 
   return (

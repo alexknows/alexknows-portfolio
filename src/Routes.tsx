@@ -2,7 +2,7 @@ import React from "react";
 import { Switch, Redirect } from "react-router-dom";
 
 import { RouteWithLayout } from "./components";
-import { IOSView, AndroidView, WebView } from "./pages";
+import { IOSView, AndroidView, WebView, AiView } from "./pages";
 import { PortfolioLayout } from "./layouts";
 const Routes = () => {
   return (
@@ -26,6 +26,12 @@ const Routes = () => {
         exact
         layout={PortfolioLayout}
         path="/web"
+      />
+      <RouteWithLayout
+        component={AiView}
+        exact
+        layout={PortfolioLayout}
+        path="/ai"
       />
     </Switch>
   );

@@ -15,7 +15,7 @@ import {
 
 interface SectionBuilderProps {
   section: Section;
-  sectionType?: "android" | "ios" | "web";
+  sectionType?: "android" | "ios" | "web" | "ai";
   styles: (
     props?: any
   ) => Record<
@@ -84,18 +84,22 @@ const SectionBuilder = (props: SectionBuilderProps) => {
   };
   const drawTopSection = () => {
     const { title, subtitle, headerImage, link } = section;
-    const headerImgPath = require(`../../assets/images/${section.assetsFolderName}/${headerImage}`);
+    const headerImgPath = headerImage
+      ? require(`../../assets/images/${section.assetsFolderName}/${headerImage}`)
+      : null;
     return (
       <Grid spacing={2} container justifyContent="center" direction="column">
-        <Grid item>
-          <a href={link} target="_blank" rel="noreferrer">
-            <img
-              className={classes[section.headerImageType]}
-              src={headerImgPath}
-              alt=""
-            />
-          </a>
-        </Grid>
+        {headerImgPath && (
+          <Grid item>
+            <a href={link} target="_blank" rel="noreferrer">
+              <img
+                className={classes[section.headerImageType]}
+                src={headerImgPath}
+                alt=""
+              />
+            </a>
+          </Grid>
+        )}
         <Grid item>
           <Typography variant="h1">{title ? title : ""}</Typography>
         </Grid>

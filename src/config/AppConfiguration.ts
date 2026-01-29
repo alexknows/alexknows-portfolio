@@ -27,6 +27,7 @@ export interface Pages {
   android: Page;
   ios: Page;
   web: Page;
+  ai: Page;
 }
 export enum SeeMore {
   list = 1,
@@ -40,7 +41,7 @@ export interface SeeMoreMetadata {
 }
 export interface Section {
   imagesType: "multiple" | "single";
-  headerImage: string;
+  headerImage?: string;
   assetsFolderName: string;
   title?: string;
   subtitle?: string;
@@ -79,12 +80,18 @@ const AppConfig: AppConfigInterface = {
       text: "Web",
       color: "#a9a9a9",
       route: "web"
+    },
+    {
+      years: 2,
+      text: "AI",
+      color: "#a9a9a9",
+      route: "ai"
     }
   ],
   about: {
     imageURL: "/assets/alex.png",
     title: "Alex Cruz",
-    subtitle: "Ai Engineer",
+    subtitle: "AI Engineer",
     text: `...a born-and-raised Miami programmer. `,
     seeMoreText: [
       `Bullets:`,
@@ -249,6 +256,31 @@ const AppConfig: AppConfigInterface = {
               `List your car. Rent a car. Earn money. Simple.`
             ]
           },
+        },
+      ]
+    },
+    ai: {
+      styles: makeStyles((theme: Theme) => aiSectionStyles),
+      sections: [
+        {
+          link: "https://github.com",
+          headerImageType: "wide",
+          assetsFolderName: "Ai/AIWaitress",
+          imagesType: "single",
+          title: "AI Waitress",
+          subtitle: "Personal Restaurant Waiter/Waitress",
+          images: ["1.jpg", "2.jpg", "3.jpg", "4.jpg"],
+          text: `AI Waitress is like having a friendly, always-available restaurant assistant that customers can talk to (or text with) from their phone. It helps them browse the menu, get recommendations, place orders, and request help - all without waiting for a staff member to be available.`
+        },
+        {
+          link: "https://github.com",
+          headerImageType: "wide",
+          assetsFolderName: "Ai/ChefAI",
+          imagesType: "single",
+          title: "ChefAI",
+          subtitle: "Automatic ingredient ordering for Chefs",
+          images: ["1.jpg", "2.jpg", "3.jpg", "4.jpg"],
+          text: `ChefAI is an AI-powered ordering assistant designed for chefs. It simplifies the process of sending ingredient orders to multiple vendors by letting chefs upload mulitple PDF or Excel price lists, then automatically splitting and sending orders to the right vendors.`
         },
       ]
     },
@@ -560,6 +592,19 @@ const iosSectionStyles: GenericSectionStyles = {
   text: {}
 };
 const webSectionStyles: GenericSectionStyles = {
+  image: { border: "1px #80808038 solid", borderRadius: "2%" },
+  list: { paddingLeft: 13, textAlign: "left", margin: 0 },
+  seeMoreButton: {
+    fontSize: 12,
+    fontFamily: "Roboto",
+    color: "blue",
+    fontWeight: 500,
+    alignSelf: "flex-end"
+  },
+  seeMoreText: {},
+  text: {}
+};
+const aiSectionStyles: GenericSectionStyles = {
   image: { border: "1px #80808038 solid", borderRadius: "2%" },
   list: { paddingLeft: 13, textAlign: "left", margin: 0 },
   seeMoreButton: {
