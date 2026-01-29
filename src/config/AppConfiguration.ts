@@ -85,7 +85,7 @@ const AppConfig: AppConfigInterface = {
     imageURL: "/assets/alex.png",
     title: "Alex Cruz",
     subtitle: "Ai Engineer",
-    text: `I'm Alex Cruz, a born-and-raised Miami programmer. `,
+    text: `...a born-and-raised Miami programmer. `,
     seeMoreText: [
       `Bullets:`,
       `• Mentored for three years by an industry pioneer who brought to market a revolutionary product still used today.`,
