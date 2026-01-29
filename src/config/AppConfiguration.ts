@@ -85,7 +85,7 @@ const AppConfig: AppConfigInterface = {
     imageURL: "/assets/alex.png",
     title: "Alex Cruz",
     subtitle: "Technical Leader",
-    text: `I'm Alex Cruz, a 37-year-old born and raised Miami native. `,
+    text: `I'm Alex Cruz, a born and raised Miami native. `,
     seeMoreText: [
       `Bullets:`,
       `• Mentored for three years by an industry pioneer who brought to market a revolutionary product still used today.`,
