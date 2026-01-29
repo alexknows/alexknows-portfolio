@@ -279,7 +279,7 @@ const AppConfig: AppConfigInterface = {
           imagesType: "single",
           title: "ChefAI",
           subtitle: "Automatic ingredient ordering for Chefs",
-          images: ["1.jpg", "2.jpg", "3.jpg", "4.jpg"],
+          images: ["1.jpg", "2.jpg", "3.jpg"],
           text: `ChefAI is an AI-powered ordering assistant designed for chefs. It simplifies the process of sending ingredient orders to multiple vendors by letting chefs upload mulitple PDF or Excel price lists, then automatically splitting and sending orders to the right vendors.`
         },
       ]
