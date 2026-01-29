@@ -7,17 +7,17 @@ const useStyles = makeStyles(theme => {
   return createStyles({
     root: {
       display: "inline-block",
-      width: "49px",
-      height: "49px",
+      width: "60px",
+      height: "60px",
       borderRadius: "50%"
     },
     years: {
-      fontSize: 14,
+      fontSize: 17,
       color: "white",
-      marginBottom: 5
+      marginBottom: 4
     },
     text: {
-      fontSize: 9,
+      fontSize: 11,
       color: "white"
     },
     wrapper: {

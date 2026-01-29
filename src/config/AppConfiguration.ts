@@ -64,6 +64,12 @@ const AppConfig: AppConfigInterface = {
       color: "#ff9e10"
     },
     {
+      years: 2,
+      text: "AI",
+      color: "#a9a9a9",
+      route: "ai"
+    },
+    {
       years: 10,
       text: "iOS",
       color: "#000000",
@@ -80,12 +86,6 @@ const AppConfig: AppConfigInterface = {
       text: "Web",
       color: "#a9a9a9",
       route: "web"
-    },
-    {
-      years: 2,
-      text: "AI",
-      color: "#a9a9a9",
-      route: "ai"
     }
   ],
   about: {

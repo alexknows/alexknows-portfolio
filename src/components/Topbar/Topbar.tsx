@@ -45,24 +45,24 @@ const Topbar = () => {
       <AppBar position="fixed">
         <Toolbar>
           <div className={classes.navigationIcons}>
+            <RouterLink activeClassName={classes.active} to="/ai">
+              <IconButton color="secondary" aria-label="AI projects">
+                <MemoryIcon className={classes.icon} />
+              </IconButton>
+            </RouterLink>
             <RouterLink activeClassName={classes.active} to="/ios">
-              <IconButton color="secondary" aria-label="delete">
+              <IconButton color="secondary" aria-label="iOS">
                 <AppleIcon className={classes.icon} />
               </IconButton>
             </RouterLink>
             <RouterLink activeClassName={classes.active} to="/android">
-              <IconButton color="secondary" aria-label="delete">
+              <IconButton color="secondary" aria-label="Android">
                 <AndroidIcon className={classes.icon} />
               </IconButton>
             </RouterLink>
             <RouterLink activeClassName={classes.active} to="/web">
-              <IconButton color="secondary" aria-label="delete">
+              <IconButton color="secondary" aria-label="Web">
                 <LanguageIcon className={classes.icon} />
-              </IconButton>
-            </RouterLink>
-            <RouterLink activeClassName={classes.active} to="/ai">
-              <IconButton color="secondary" aria-label="AI projects">
-                <MemoryIcon className={classes.icon} />
               </IconButton>
             </RouterLink>
           </div>
