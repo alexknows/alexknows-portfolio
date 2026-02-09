@@ -12,6 +12,7 @@ import AndroidIcon from "@material-ui/icons/AndroidSharp";
 import AppleIcon from "@material-ui/icons/Apple";
 import MemoryIcon from "@material-ui/icons/Memory";
 import BuildIcon from "@material-ui/icons/Build";
+import MenuBookIcon from "@material-ui/icons/MenuBook";
 import { NavLink as RouterLink } from "react-router-dom";
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -67,6 +68,11 @@ const Footer = () => {
         <RouterLink activeClassName={classes.active} to="/web">
           <IconButton color="secondary" aria-label="Web">
             <LanguageIcon className={classes.icon} />
+          </IconButton>
+        </RouterLink>
+        <RouterLink activeClassName={classes.active} to="/blogs">
+          <IconButton color="secondary" aria-label="Blogs">
+            <MenuBookIcon className={classes.icon} />
           </IconButton>
         </RouterLink>
       </div>

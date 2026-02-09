@@ -26,7 +26,8 @@ const useStyles = makeStyles((theme: Theme) => ({
 const PortfolioLayout = (props: any) => {
   const { children } = props;
   const history = useHistory();
-  const pathKey = history.location.pathname.slice(1) || "ios";
+  const pathSegment = history.location.pathname.slice(1) || "ios";
+  const pathKey = pathSegment.startsWith("blogs") ? "blogs" : pathSegment;
   const pageConfig = (PagesConfig as any)[pathKey];
   const { rootStyles = {}, containerStyles = {} } = pageConfig || {};
   const classes = useStyles();

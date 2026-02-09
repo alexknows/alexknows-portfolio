@@ -1,5 +1,6 @@
 import { CSSProperties } from "@material-ui/styles";
 import { makeStyles, Theme } from "@material-ui/core";
+import { blogPostsWithContent, BlogPost } from "./blogPostsData";
 
 export interface Skill {
   years: number;
@@ -52,10 +53,12 @@ export interface Section {
   seeMoreMetadata?: SeeMoreMetadata;
   link: string;
 }
+export type { BlogPost } from "./blogPostsData";
 export interface AppConfigInterface {
   skills: Skill[];
   about: About;
   pages: Pages;
+  blogPosts: BlogPost[];
 }
 const AppConfig: AppConfigInterface = {
   skills: [
@@ -93,6 +96,12 @@ const AppConfig: AppConfigInterface = {
       text: "Web",
       color: "#a9a9a9",
       route: "web"
+    },
+    {
+      years: 8,
+      text: "Blogs",
+      color: "#a9a9a9",
+      route: "blogs"
     }
   ],
   about: {
@@ -112,6 +121,7 @@ const AppConfig: AppConfigInterface = {
       `Currently at Wamy, I build and deploy production-grade AI systems for a claims-intelligence platform, delivering end-to-end TypeScript applications backed by Supabase and AWS, and shipping retrieval-augmented generation (RAG) pipelines and prompt orchestration that power real-world legal workflows, customer onboarding, and agent-focused automation.`
     ]
   },
+  blogPosts: blogPostsWithContent,
   pages: {
     android: {
       styles: makeStyles((theme: Theme) => androidSectionStyles),
@@ -566,6 +576,14 @@ export const PagesConfig = {
     containerStyles: {}
   },
   tools: {
+    rootStyles: {},
+    containerStyles: {}
+  },
+  blog: {
+    rootStyles: {},
+    containerStyles: {}
+  },
+  blogs: {
     rootStyles: {},
     containerStyles: {}
   }

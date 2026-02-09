@@ -7,6 +7,10 @@ import Routes from "./Routes";
 
 const browserHistory = createBrowserHistory();
 
+if (typeof window !== "undefined" && window.history && typeof window.history.scrollRestoration === "string") {
+  window.history.scrollRestoration = "manual";
+}
+
 function App() {
   return (
     <ThemeProvider theme={theme}>
