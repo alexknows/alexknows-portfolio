@@ -95,7 +95,7 @@ const BlogPostView = () => {
     const isBoldHeader = /^\*\*[^*]+\*\*$/.test(trimmed) || trimmed.startsWith("**");
     if (isBoldHeader) {
       return (
-        <Typography key={key} variant="h2" style={{ marginTop: 16, marginBottom: 8 }}>
+        <Typography key={key} variant="h2" style={{ marginTop: 16, marginBottom: 8, fontWeight: 700 }}>
           {trimmed.replace(/\*\*/g, "")}
         </Typography>
       );
