@@ -6,7 +6,9 @@ import { withRouter, RouteComponentProps } from "react-router-dom";
 
 const useStyles = makeStyles(() => ({
   root: {
-    textAlign: "right"
+    textAlign: "right",
+    overflow: "visible",
+    minHeight: 70
   },
   skill: {}
 }));
@@ -24,9 +26,9 @@ const CircularSkills = (props: RouteComponentProps) => {
   };
   return (
     <div className={classes.root}>
-      <Grid justify="flex-end" spacing={1} container>
+      <Grid justify="flex-end" spacing={1} wrap="wrap" container>
         {skills.map((skill, index) => (
-          <Grid key={index} item>
+          <Grid key={`${skill.text}-${index}`} item>
             <CircularSkill
               color={getSkillColor(skill)}
               text={skill.text}

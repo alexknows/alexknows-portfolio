@@ -28,6 +28,7 @@ export interface Pages {
   ios: Page;
   web: Page;
   ai: Page;
+  tools: Page;
 }
 export enum SeeMore {
   list = 1,
@@ -68,6 +69,12 @@ const AppConfig: AppConfigInterface = {
       text: "AI",
       color: "#a9a9a9",
       route: "ai"
+    },
+    {
+      years: 1,
+      text: "Tools",
+      color: "#a9a9a9",
+      route: "tools"
     },
     {
       years: 10,
@@ -281,6 +288,21 @@ const AppConfig: AppConfigInterface = {
           subtitle: "Automatic ingredient ordering for Chefs",
           images: ["1.jpg", "2.jpg", "3.jpg"],
           text: `ChefAI is an AI-powered ordering assistant designed for chefs. It simplifies the process of sending ingredient orders to multiple vendors by letting chefs upload mulitple PDF or Excel price lists, then automatically splitting and sending orders to the right vendors.`
+        },
+      ]
+    },
+    tools: {
+      styles: makeStyles((theme: Theme) => toolsSectionStyles),
+      sections: [
+        {
+          link: "https://github.com",
+          headerImageType: "wide",
+          assetsFolderName: "Docinator/Placeholder",
+          imagesType: "single",
+          title: "Docinator",
+          subtitle: "Domain-agnostic Document Pipeline",
+          images: ["1.png", "2.png", "3.png", "4.png", "5.png", "6.png", "7.png", "8.png", "9.png"],
+          text: `Docinator is a document intelligence and management platform. It ingests documents (PDF, Word, images), runs them through an automated processing pipeline (split, layout extraction, optional classification and analysis), and lets users organize and work with documents in projects with folders, extracted taxonomy, and AI-powered features.`
         },
       ]
     },
@@ -538,6 +560,14 @@ export const PagesConfig = {
   web: {
     rootStyles: {},
     containerStyles: {}
+  },
+  ai: {
+    rootStyles: {},
+    containerStyles: {}
+  },
+  tools: {
+    rootStyles: {},
+    containerStyles: {}
   }
 };
 interface GenericSectionStyles {
@@ -605,6 +635,19 @@ const webSectionStyles: GenericSectionStyles = {
   text: {}
 };
 const aiSectionStyles: GenericSectionStyles = {
+  image: { border: "1px #80808038 solid", borderRadius: "2%" },
+  list: { paddingLeft: 13, textAlign: "left", margin: 0 },
+  seeMoreButton: {
+    fontSize: 12,
+    fontFamily: "Roboto",
+    color: "blue",
+    fontWeight: 500,
+    alignSelf: "flex-end"
+  },
+  seeMoreText: {},
+  text: {}
+};
+const toolsSectionStyles: GenericSectionStyles = {
   image: { border: "1px #80808038 solid", borderRadius: "2%" },
   list: { paddingLeft: 13, textAlign: "left", margin: 0 },
   seeMoreButton: {

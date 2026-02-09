@@ -15,7 +15,7 @@ import {
 
 interface SectionBuilderProps {
   section: Section;
-  sectionType?: "android" | "ios" | "web" | "ai";
+  sectionType?: "android" | "ios" | "web" | "ai" | "tools";
   styles: (
     props?: any
   ) => Record<
