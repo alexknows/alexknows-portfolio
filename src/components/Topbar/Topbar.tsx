@@ -72,8 +72,8 @@ const Topbar = () => {
                 <LanguageIcon className={classes.icon} />
               </IconButton>
             </RouterLink>
-            <RouterLink activeClassName={classes.active} to="/blogs">
-              <IconButton color="secondary" aria-label="Blogs">
+            <RouterLink activeClassName={classes.active} to="/posts">
+              <IconButton color="secondary" aria-label="Posts">
                 <MenuBookIcon className={classes.icon} />
               </IconButton>
             </RouterLink>

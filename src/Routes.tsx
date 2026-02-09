@@ -8,7 +8,8 @@ const Routes = () => {
   return (
     <Switch>
       <Redirect exact from="/" to="/ios" />
-      <Redirect exact from="/blog" to="/blogs" />
+      <Redirect exact from="/blog" to="/posts" />
+      <Redirect exact from="/blogs" to="/posts" />
 
       <RouteWithLayout
         component={AndroidView}
@@ -49,7 +50,7 @@ const Routes = () => {
         component={BlogView}
         exact
         layout={PortfolioLayout}
-        path="/blogs"
+        path="/posts"
       />
     </Switch>
   );

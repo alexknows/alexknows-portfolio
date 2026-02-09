@@ -65,10 +65,10 @@ const BlogPostView = () => {
         <Link
           component="button"
           variant="body2"
-          onClick={() => history.push("/blogs")}
+          onClick={() => history.push("/posts")}
           className={classes.backLink}
         >
-          ← Back to Blogs
+          ← Back to Posts
         </Link>
         <Typography color="textSecondary">Post not found.</Typography>
       </div>
@@ -146,11 +146,11 @@ const BlogPostView = () => {
         <Link
           component="button"
           variant="body2"
-          onClick={() => history.push("/blogs")}
+          onClick={() => history.push("/posts")}
           className={classes.backLink}
           color="primary"
         >
-          ← Back to Blogs
+          ← Back to Posts
         </Link>
         <Typography variant="body2" color="textSecondary" className={classes.date}>
           {post.date}

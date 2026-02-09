@@ -63,11 +63,6 @@ export interface AppConfigInterface {
 const AppConfig: AppConfigInterface = {
   skills: [
     {
-      years: 11,
-      text: "Years",
-      color: "#ff9e10"
-    },
-    {
       years: 2,
       text: "AI",
       color: "#a9a9a9",
@@ -99,9 +94,9 @@ const AppConfig: AppConfigInterface = {
     },
     {
       years: 8,
-      text: "Blogs",
+      text: "Posts",
       color: "#a9a9a9",
-      route: "blogs"
+      route: "posts"
     }
   ],
   about: {
@@ -579,11 +574,7 @@ export const PagesConfig = {
     rootStyles: {},
     containerStyles: {}
   },
-  blog: {
-    rootStyles: {},
-    containerStyles: {}
-  },
-  blogs: {
+  posts: {
     rootStyles: {},
     containerStyles: {}
   }

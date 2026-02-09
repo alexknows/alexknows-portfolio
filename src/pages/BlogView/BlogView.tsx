@@ -46,7 +46,7 @@ const BlogView = () => {
             <Typography variant="h1" className={classes.title}>
               <Link
                 component={RouterLink}
-                to={`/blogs/${index}`}
+                to={`/posts/${index}`}
                 color="primary"
                 underline="hover"
               >
@@ -62,7 +62,7 @@ const BlogView = () => {
             </Typography>
             <Link
               component={RouterLink}
-              to={`/blogs/${index}`}
+              to={`/posts/${index}`}
               color="primary"
               variant="body2"
               underline="hover"
