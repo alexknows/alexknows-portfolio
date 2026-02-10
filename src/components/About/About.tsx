@@ -8,7 +8,6 @@ import {
 } from "@material-ui/core";
 import EmailIcon from "@material-ui/icons/Email";
 import AppConfig from "../../config/AppConfiguration";
-import theme from "../../theme";
 
 const useStyles = makeStyles((theme) => ({
   root: {
