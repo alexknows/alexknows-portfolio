@@ -3,7 +3,6 @@ import {
   makeStyles,
   Grid,
   Typography,
-  Button,
   Collapse,
   IconButton
 } from "@material-ui/core";
@@ -23,11 +22,18 @@ const useStyles = makeStyles((theme) => ({
     flex: 1,
     marginTop: theme.spacing(1)
   },
-  seeMoreButton: {
+  readMoreLink: {
     fontFamily: "Roboto",
-    color: "blue",
-    fontWeight: 500,
-    alignSelf: "flex-end"
+    color: theme.palette.text.secondary,
+    fontWeight: 400,
+    fontSize: "0.9rem",
+    paddingTop: theme.spacing(1),
+    paddingBottom: theme.spacing(1),
+    display: "inline-block",
+    cursor: "pointer",
+    "&:hover": {
+      color: theme.palette.primary.main
+    }
   },
   linkIcons: {
     display: "flex",
@@ -142,19 +148,13 @@ const About = (props: any) => {
               </Typography>
             ))}
           </Collapse>
-          <Button
-            style={{ textTransform: "none" }}
-            className={classes.seeMoreButton}
+          <Typography
+            component="span"
+            className={classes.readMoreLink}
+            onClick={() => setSeeMore(!seeMore)}
           >
-            <button
-              onClick={event => {
-                event.preventDefault();
-                setSeeMore(!seeMore);
-              }}
-            >
-              {seeMore ? "see less" : "see more"}
-            </button>
-          </Button>
+            {seeMore ? "read less" : "read more"}
+          </Typography>
         </Grid>
       </Grid>
     </Grid>
