@@ -44,7 +44,7 @@ const Routes = () => {
       <RouteWithLayout
         component={BlogPostView}
         layout={PortfolioLayout}
-        path="/blogs/:postId"
+        path="/posts/:postId"
       />
       <RouteWithLayout
         component={BlogView}

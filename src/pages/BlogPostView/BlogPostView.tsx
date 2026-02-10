@@ -59,7 +59,7 @@ const BlogPostView = () => {
   const post =
     !isNaN(index) && index >= 0 && index < posts.length ? posts[index] : null;
 
-  if (!post) {
+  if (!post || typeof post !== "object") {
     return (
       <div className={classes.root}>
         <Link
@@ -120,7 +120,8 @@ const BlogPostView = () => {
   };
 
   const parts: React.ReactNode[] = [];
-  const segments = post.content.split(/\n?```\n?/);
+  const rawContent = typeof post.content === "string" ? post.content : "";
+  const segments = rawContent.split(/\n?```\n?/);
   let keyIdx = 0;
   segments.forEach((segment, i) => {
     if (i % 2 === 1) {
@@ -138,7 +139,7 @@ const BlogPostView = () => {
         });
     }
   });
-  const contentWithParagraphs = parts;
+  const contentWithParagraphs = parts.length > 0 ? parts : null;
 
   return (
     <Zoom in={true} style={{ transitionDelay: "150ms" }}>
@@ -158,7 +159,11 @@ const BlogPostView = () => {
         <Typography variant="h1" className={classes.title}>
           {post.title}
         </Typography>
-        <Box className={classes.content}>{contentWithParagraphs}</Box>
+        {contentWithParagraphs ? (
+          <Box className={classes.content}>{contentWithParagraphs}</Box>
+        ) : (
+          <Typography color="textSecondary">No content for this post.</Typography>
+        )}
       </div>
     </Zoom>
   );
