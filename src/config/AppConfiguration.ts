@@ -65,7 +65,7 @@ const AppConfig: AppConfigInterface = {
     {
       years: 2,
       text: "AI",
-      color: "#a9a9a9",
+      color: "rgb(251, 101, 30)",
       route: "ai"
     },
     {
@@ -77,7 +77,7 @@ const AppConfig: AppConfigInterface = {
     {
       years: 10,
       text: "iOS",
-      color: "#000000",
+      color: "#a9a9a9",
       route: "ios"
     },
     {

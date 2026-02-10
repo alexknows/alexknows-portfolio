@@ -22,7 +22,7 @@ const CircularSkills = (props: RouteComponentProps) => {
     }
     return skill.route && location.pathname.includes(skill.route)
       ? "black"
-      : "gray";
+      : (skill.color ?? "gray");
   };
   return (
     <div className={classes.root}>
