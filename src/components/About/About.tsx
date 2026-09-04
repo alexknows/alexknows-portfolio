@@ -34,6 +34,14 @@ const useStyles = makeStyles((theme) => ({
       color: theme.palette.primary.main
     }
   },
+  photo: {
+    width: 150,
+    height: 150,
+    display: "block",
+    objectFit: "cover",
+    objectPosition: "center bottom",
+    borderRadius: "50%"
+  },
   linkIcons: {
     display: "flex",
     alignItems: "center",
@@ -64,8 +72,9 @@ const About = (props: any) => {
     <Grid style={{ marginTop: 15 }} direction="row" spacing={2} container>
       <Grid xs={12} md={"auto"} item>
         <img
-          src={require("../../assets/images/PortfolioLayout/alex.png")}
-          alt=""
+          className={classes.photo}
+          src={require("../../assets/images/PortfolioLayout/alex.jpg")}
+          alt="Alex Cruz"
         />
       </Grid>
       <Grid

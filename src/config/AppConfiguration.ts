@@ -53,7 +53,8 @@ export interface Section {
   seeMoreMetadata?: SeeMoreMetadata;
   link: string;
 }
-export type { BlogPost } from "./blogPostsData";
+export type { BlogPost, NoteTrack } from "./blogPostsData";
+export { getPostTrack, noteTrackLabels, slugify, ensurePostId } from "./blogPostsData";
 export interface AppConfigInterface {
   skills: Skill[];
   about: About;
@@ -100,10 +101,10 @@ const AppConfig: AppConfigInterface = {
     }
   ],
   about: {
-    imageURL: "/assets/alex.png",
+    imageURL: "/assets/alex.jpg",
     title: "Alex Cruz",
-    subtitle: "AI Engineer",
-    text: `...a born-and-raised Miami programmer. `,
+    subtitle: "E-commerce, poker, and software.",
+    text: `After 10 years as a software engineer, I'm focused on two paths: e-commerce and a poker training app. I write about the experiments, the go-to-market, and what I'm learning along the way.`,
     seeMoreText: [
       `Bullets:`,
       `• Mentored for three years by an industry pioneer who brought to market a revolutionary product still used today.`,
@@ -549,6 +550,26 @@ const AppConfig: AppConfigInterface = {
 
 export default AppConfig;
 export const PagesConfig = {
+  home: {
+    rootStyles: {},
+    containerStyles: {}
+  },
+  commerce: {
+    rootStyles: {},
+    containerStyles: {}
+  },
+  poker: {
+    rootStyles: {},
+    containerStyles: {}
+  },
+  work: {
+    rootStyles: {},
+    containerStyles: {}
+  },
+  notes: {
+    rootStyles: {},
+    containerStyles: {}
+  },
   android: {
     rootStyles: {
       backgroundColor: "#ededed"

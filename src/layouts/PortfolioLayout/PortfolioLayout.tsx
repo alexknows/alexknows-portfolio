@@ -1,6 +1,6 @@
 import React from "react";
 import { makeStyles, Container, Theme } from "@material-ui/core";
-import { Topbar, CircularSkills, About, Footer } from "../../components";
+import { Topbar, About, Footer } from "../../components";
 import { useHistory } from "react-router-dom";
 import { PagesConfig } from "../../config/AppConfiguration";
 
@@ -26,8 +26,23 @@ const useStyles = makeStyles((theme: Theme) => ({
 const PortfolioLayout = (props: any) => {
   const { children } = props;
   const history = useHistory();
-  const pathSegment = history.location.pathname.slice(1) || "ios";
-  const pathKey = pathSegment.startsWith("posts") ? "posts" : pathSegment;
+  const pathname = history.location.pathname;
+  const pathKey = (() => {
+    if (pathname === "/") return "home";
+    if (pathname.startsWith("/notes") || pathname.startsWith("/posts")) {
+      return "notes";
+    }
+    if (
+      pathname.startsWith("/work") ||
+      pathname.startsWith("/past-projects")
+    ) {
+      return "work";
+    }
+    if (pathname.startsWith("/ecommerce") || pathname.startsWith("/commerce")) {
+      return "commerce";
+    }
+    return pathname.slice(1).split("/")[0] || "home";
+  })();
   const pageConfig = (PagesConfig as any)[pathKey];
   const { rootStyles = {}, containerStyles = {} } = pageConfig || {};
   const classes = useStyles();
@@ -41,7 +56,6 @@ const PortfolioLayout = (props: any) => {
         className={classes.content}
         maxWidth="md"
       >
-        <CircularSkills />
         <About />
         <main>{children}</main>
       </Container>

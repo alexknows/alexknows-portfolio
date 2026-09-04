@@ -2,7 +2,7 @@ import React from "react";
 import { Zoom, Typography, Box, Link } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { useParams, useHistory } from "react-router-dom";
-import AppConfig from "../../config/AppConfiguration";
+import { usePosts } from "../../context/PostsContext";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -25,6 +25,14 @@ const useStyles = makeStyles(() => ({
     "& strong": {
       fontWeight: 700,
     },
+    "& a": {
+      fontWeight: 500,
+    },
+  },
+  divider: {
+    border: 0,
+    borderTop: "1px solid rgba(0,0,0,0.12)",
+    margin: "28px 0",
   },
   codeBlock: {
     display: "block",
@@ -54,10 +62,12 @@ const BlogPostView = () => {
   const classes = useStyles();
   const { postId } = useParams<{ postId: string }>();
   const history = useHistory();
-  const posts = AppConfig.blogPosts;
+  const { posts } = usePosts();
+  const byId = posts.find((item) => item.id === postId);
   const index = parseInt(postId ?? "", 10);
   const post =
-    !isNaN(index) && index >= 0 && index < posts.length ? posts[index] : null;
+    byId ||
+    (!isNaN(index) && index >= 0 && index < posts.length ? posts[index] : null);
 
   if (!post || typeof post !== "object") {
     return (
@@ -65,19 +75,64 @@ const BlogPostView = () => {
         <Link
           component="button"
           variant="body2"
-          onClick={() => history.push("/posts")}
+          onClick={() => history.push("/notes")}
           className={classes.backLink}
         >
-          ← Back to Posts
+          ← Back to Notes
         </Link>
         <Typography color="textSecondary">Post not found.</Typography>
       </div>
     );
   }
 
+  const renderInline = (text: string, keyPrefix: string) => {
+    const tokens = text.split(
+      /(\[[^\]]+\]\([^)]+\)|https?:\/\/[^\s)]+)/g
+    );
+    return tokens.map((token, i) => {
+      const markdownLink = token.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+      if (markdownLink) {
+        return (
+          <Link
+            key={`${keyPrefix}-${i}`}
+            href={markdownLink[2]}
+            target="_blank"
+            rel="noopener noreferrer"
+            color="primary"
+          >
+            {markdownLink[1]}
+          </Link>
+        );
+      }
+      if (/^https?:\/\//.test(token)) {
+        return (
+          <Link
+            key={`${keyPrefix}-${i}`}
+            href={token}
+            target="_blank"
+            rel="noopener noreferrer"
+            color="primary"
+          >
+            {token}
+          </Link>
+        );
+      }
+      return token.split(/(\*\*[^*]+\*\*)/g).map((part, j) =>
+        part.startsWith("**") && part.endsWith("**") ? (
+          <strong key={`${keyPrefix}-${i}-${j}`}>{part.slice(2, -2)}</strong>
+        ) : (
+          part
+        )
+      );
+    });
+  };
+
   const renderParagraph = (text: string, key: number) => {
     const trimmed = text.trim();
     if (!trimmed) return null;
+    if (trimmed === "---") {
+      return <hr key={key} className={classes.divider} />;
+    }
     if (trimmed.startsWith("[IMAGE]")) {
       const src = trimmed.replace(/^\[IMAGE\]/, "").trim();
       if (src) {
@@ -85,14 +140,16 @@ const BlogPostView = () => {
           <img
             key={key}
             src={src}
-            alt="Architecture diagram"
+            alt=""
             className={classes.postImage}
           />
         );
       }
       return null;
     }
-    const isBoldHeader = /^\*\*[^*]+\*\*$/.test(trimmed) || trimmed.startsWith("**");
+    const isBoldHeader =
+      /^\*\*[^*]+\*\*$/.test(trimmed) ||
+      (trimmed.startsWith("**") && !trimmed.includes("]("));
     if (isBoldHeader) {
       return (
         <Typography key={key} variant="h2" style={{ marginTop: 16, marginBottom: 8, fontWeight: 700 }}>
@@ -108,13 +165,7 @@ const BlogPostView = () => {
         className={classes.content}
         style={{ marginBottom: 12 }}
       >
-        {trimmed.split(/(\*\*[^*]+\*\*)/g).map((part, i) =>
-          part.startsWith("**") && part.endsWith("**") ? (
-            <strong key={i}>{part.slice(2, -2)}</strong>
-          ) : (
-            part
-          )
-        )}
+        {renderInline(trimmed, `p${key}`)}
       </Typography>
     );
   };
@@ -147,11 +198,11 @@ const BlogPostView = () => {
         <Link
           component="button"
           variant="body2"
-          onClick={() => history.push("/posts")}
+          onClick={() => history.push("/notes")}
           className={classes.backLink}
           color="primary"
         >
-          ← Back to Posts
+          ← Back to Notes
         </Link>
         <Typography variant="body2" color="textSecondary" className={classes.date}>
           {post.date}

@@ -4,6 +4,8 @@ import theme from "./theme/theme";
 import { createBrowserHistory } from "history";
 import { Router } from "react-router-dom";
 import Routes from "./Routes";
+import { AuthProvider } from "./context/AuthContext";
+import { PostsProvider } from "./context/PostsContext";
 
 const browserHistory = createBrowserHistory();
 
@@ -14,9 +16,13 @@ if (typeof window !== "undefined" && window.history && typeof window.history.scr
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <Router history={browserHistory}>
-        <Routes />
-      </Router>
+      <AuthProvider>
+        <PostsProvider>
+          <Router history={browserHistory}>
+            <Routes />
+          </Router>
+        </PostsProvider>
+      </AuthProvider>
     </ThemeProvider>
   );
 }

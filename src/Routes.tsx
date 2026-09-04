@@ -1,45 +1,68 @@
 import React from "react";
-import { Switch, Redirect } from "react-router-dom";
+import { Switch, Redirect, Route } from "react-router-dom";
 
 import { RouteWithLayout } from "./components";
-import { IOSView, AndroidView, WebView, AiView, ToolsView, BlogView, BlogPostView } from "./pages";
+import {
+  HomeView,
+  CommerceView,
+  PokerView,
+  WorkView,
+  BlogView,
+  BlogPostView,
+  AdminView,
+} from "./pages";
 import { PortfolioLayout } from "./layouts";
+
 const Routes = () => {
   return (
     <Switch>
-      <Redirect exact from="/" to="/ios" />
-      <Redirect exact from="/blog" to="/posts" />
-      <Redirect exact from="/blogs" to="/posts" />
+      <Route path="/admin" component={AdminView} />
+      <Redirect exact from="/blog" to="/notes" />
+      <Redirect exact from="/blogs" to="/notes" />
+      <Redirect exact from="/posts" to="/notes" />
+      <Redirect exact from="/commerce" to="/ecommerce" />
+      <Redirect exact from="/work" to="/past-projects/ios" />
+      <Redirect exact from="/past-projects" to="/past-projects/ios" />
+      <Redirect exact from="/ios" to="/past-projects/ios" />
+      <Redirect exact from="/android" to="/past-projects/android" />
+      <Redirect exact from="/web" to="/past-projects/web" />
+      <Redirect exact from="/ai" to="/past-projects/ai" />
+      <Redirect exact from="/tools" to="/past-projects/tools" />
 
       <RouteWithLayout
-        component={AndroidView}
+        component={HomeView}
         exact
         layout={PortfolioLayout}
-        path="/android"
+        path="/"
       />
       <RouteWithLayout
-        component={IOSView}
+        component={CommerceView}
         exact
         layout={PortfolioLayout}
-        path="/ios"
+        path="/ecommerce"
       />
       <RouteWithLayout
-        component={WebView}
+        component={PokerView}
         exact
         layout={PortfolioLayout}
-        path="/web"
+        path="/poker"
       />
       <RouteWithLayout
-        component={AiView}
+        component={WorkView}
         exact
         layout={PortfolioLayout}
-        path="/ai"
+        path="/past-projects/:platform"
+      />
+      <Route
+        path="/work/:platform"
+        render={({ match }) => (
+          <Redirect to={`/past-projects/${match.params.platform}`} />
+        )}
       />
       <RouteWithLayout
-        component={ToolsView}
-        exact
+        component={BlogPostView}
         layout={PortfolioLayout}
-        path="/tools"
+        path="/notes/:postId"
       />
       <RouteWithLayout
         component={BlogPostView}
@@ -50,7 +73,7 @@ const Routes = () => {
         component={BlogView}
         exact
         layout={PortfolioLayout}
-        path="/posts"
+        path="/notes"
       />
     </Switch>
   );

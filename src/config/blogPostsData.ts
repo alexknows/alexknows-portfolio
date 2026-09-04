@@ -1,12 +1,208 @@
+export type NoteTrack = "commerce" | "poker" | "startups" | "engineering";
+
+export const noteTrackLabels: Record<NoteTrack, string> = {
+  commerce: "E-commerce",
+  poker: "Poker",
+  startups: "Startups",
+  engineering: "Engineering",
+};
+
 export interface BlogPost {
+  id?: string;
   date: string;
   title: string;
   excerpt: string;
   url: string;
   content: string;
+  track?: NoteTrack;
 }
 
+export const slugify = (title: string) =>
+  title
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 90);
+
+export const ensurePostId = (post: BlogPost): BlogPost => ({
+  ...post,
+  id: post.id || slugify(post.title),
+});
+
+export const getPostTrack = (post: BlogPost): NoteTrack =>
+  post.track || "engineering";
+
 export const blogPostsWithContent: BlogPost[] = [
+  {
+    date: "Sep 1, 2022",
+    id: "the-ultimate-resource-guide-to-discovering-and-selecting-great-startup-ideas",
+    title:
+      "The Ultimate Resource Guide to Discovering and Selecting Great Startup Ideas",
+    excerpt:
+      "Do you have a strong desire to launch a startup, especially one with the potential of generating billions of dollars in value? If you answered “Hell yeah,” like me, then keep reading. I’ll share my personal experience with startup ideas and the counterintuitive concepts I wish I had known when I created my startup.",
+    url:
+      "https://alexknows.biz/startup/2022/09/01/the-ultimate-resource-guide-to-discovering-and-selecting-great-startup-ideas",
+    track: "startups",
+    content: `Do you have a strong desire to launch a startup, especially one with the potential of generating billions of dollars in value? If you answered “Hell yeah,” like me, then keep reading. I’ll share my personal experience with startup ideas and the counterintuitive concepts I wish I had known when I created my startup. Within this guide, I’ll also provide you with key ideas, insights, and resources (links included) from the world's most exceptional founders on how to discover your next big idea.
+
+I put this guide together shortly after shutting down my second startup, Delyte. Delyte delivered essential supplies on demand to residential and commercial customers. I bootstrapped my startup from scratch and catapulted it to generate ~$1M in revenue in under a year. We also got the opportunity to pitch several notable investors, such as Y Combinator, Techstars, Dreamit Ventures, Ashton Kutcher, and many more. Despite having the momentum that every early startup hopes for, Delyte’s growth slowed because we didn’t find product market fit. Eventually, I realized that Delyte’s differentiator wasn’t meaningful enough to thrive, and I decided that the best course of action was to stop and restart. “Why do you think your startup failed?” you may ask, and my answer would simply be, “The idea I selected was flawed.”
+
+Founders like you, who are enthusiastic to build their first startup, need to be aware of the opportunity cost of pursuing greater opportunities in your chosen market. As simple as it may sound, you have to resign yourself to starting off on the right foot, even if it means choosing a less appealing but more worthy challenge. That’s the formula for success.
+
+In hindsight, I paid a high price, because I started with an appealing but unprofitable idea. Instead, I should have taken time to evaluate the problem space in depth. If you make an effort, you can evaluate all your ideas before setting off on your journey, but if you run with the first idea that appeals to you, your end result will usually be bad. Imagine a farmer named Carlos spending all his time and energy cropping wheat merely because it seemed appealing at a glance. He ran with his wheat cropping business idea without much thought. If Carlos had instead taken n weeks or months of preparation to hone in on the right opportunities in his market, he could’ve been cropping and selling high-demand tomatoes in his local market and yielding himself 10x more returns. But he didn’t. When Carlos started his cropping business, do you think he properly weighed out all his options or noticed what the successful farmers were doing? If you said “no,” I would agree with you. Don’t be Carlos.
+
+Starting a startup with a bad idea is like riding a bike down hill with bad brakes. You might figure out how to come to a complete stop without good brakes, but you’re better off avoiding the danger all together. You might have fallen prey to the misconception that "It's all about the execution" or "It's all about hard work," and you’re not alone, because many entrepreneurs share those beliefs, but the overwhelming reality is that no matter how hard you work or how well you execute, if you don't start with a good idea you're likely doomed. Do you want lack of patience and preparation to lead you to years of wasted effort on an idea that won't yield any worthwhile returns? I learned this the hard way, but fortunately for us, many of the world's most admired founders write at length about how to discover or uncover great ideas laying right under our noses.
+
+Delyte’s setback motivated me to learn everything I could about how entrepreneurs like you and me discover great ideas, and during my research, I decided to put this guide together and publish it online to help you avoid the mistakes I made. In addition to my thoughts, this guide will give you an organized collection of the absolute best online resources around idea generation and idea selection from well-known, world-class founders, and I encourage you to absorb their principles, because they will guide you in the right direction just like the wind guides a sailor to shore. The insights I share in this guide will change your thinking about ideation for good and for good reason, because you need to understand what makes an idea great before you start a startup. You should use this guide as a starting point for further study. Review the resources here to familiarize yourself (as I’ve done) with the counterintuitive concepts that nurture great startup ideas so you can recognize one when you find it.
+
+But it takes time to absorb these counterintuitive concepts and then to turn them into tools in our toolshed. Don’t rush it! You need to have a firm grasp on all the characteristics that make an idea great so you can become the sort of person who notices them subconsciously. Since the governing principles are counterintuitive, it makes this process all the more challenging. For example, we should notice great ideas, not come up with them; counterintuitive, right? Our intuition tells us that great entrepreneurs bend the world to their vision, but that's not entirely true, and our intuition can lead us astray if we're not aware of this phenomenon.
+
+The same is true in Poker. When I first learned Poker, I thought the objective was to win as many pots as I could—but it’s not, and this counterintuitive concept contradicted my intuition. This fallacy cost me money, lots of it. To win at poker in the long run, your focus has to be in making quality decisions, and this means forfeiting most pots. It also means practicing away from the table to get better. Many players also don’t realize that reraising or overbetting actually gives them worse odds than they would’ve had by just calling. Your odds are better when you call $100 to win $300 because you’re getting 3:1 than when you decide to reraise to $500 to win $300 or even $800 if your opponent calls, but bad players do this all the time with no valid reason. In the second example, you’re getting ~1:1 or ~50% or less return on your investment, so when you do decide to make this play, you better have a valid reason. It might seem like a lot of work to evaluate those odds, but that’s what’s necessary to notice the best spots to maximize your profits.
+
+The same kind of effort is necessary when you’re evaluating startup ideas. At a Y Combinator [conference](https://www.youtube.com/watch?v=akOazwgDiSI) Chris Dixon made an illuminating and counterintuitive point when he said, "All the good ideas that actually look like good ideas are already taken by big companies, and that we founders and investors compete in the business of the leftovers.” So, how do we aspiring founders become good at discovering the leftovers that are actually worth pursuing? There’s no easy answer to that question, but a good starting point would be becoming skillful at the hard work of evaluating ideas and familiarizing yourself with the counterintuitive principles of discovery.
+
+Here’s a few thought-provoking and counterintuitive questions you should be asking yourself early in the idea discovery process. How do I know when an idea that looks like a toy is actually good? How could I live in the future and build what seems interesting? How can I discover something valuable vs. coming up with a “[made-up](http://paulgraham.com/startupideas.html)” idea? How should I navigate through the [idea maze](https://spark-public.s3.amazonaws.com/startup/lecture_slides/lecture5-market-wireframing-design.pdf) (the idea maze was coined by [Balaji Srinivasan](https://balajis.com/))? You’ll find the answers to those questions along your journey.
+
+“A good founder is capable of anticipating which turns lead to treasure and which lead to certain death. A bad founder is just running to the entrance of (say) the “movies/music/filesharing/P2P” maze or the “photosharing” maze without any sense for the history of the industry, the players in the maze, the casualties of the past, and the technologies that are likely to move walls and change assumptions.”
+
+“The first time Peter Thiel spoke at YC he drew a Venn diagram that illustrates the situation perfectly. He drew two intersecting circles, one labelled ‘seems like a bad idea’ and the other ‘is a good idea.’ The intersection is the sweet spot for startups.” - [Paul Graham](http://www.paulgraham.com/swan.html?viewfullsite=1)
+
+[IMAGE]/startup-ideas-venn.png
+
+90% of startups fail, and the number one reason they fail is misreading the market demand. To avoid this, closely observe and become intimately familiar with the market, and talk to users. [Learn more](https://www.embroker.com/blog/startup-statistics/)
+
+Pro tip: When you’re reading through the materials of these exceptional founders, pay close attention to the questions they ask themselves when evaluating ideas.
+
+Here’s the list of founders that I’ve found that write the most eloquently on these counterintuitive concepts.
+
+---
+
+**Paul Graham**
+
+First on my list is Paul Graham. Paul writes in-depth about how ideas organically form and tricks for generating ideas on-demand. Paul recommends choosing the former when possible because those ideas almost always change the world. Think about Mark Zuckerberg, who changed how we connect with friends and relatives around the world, but initially, Mark just wanted to learn more about his fellow students through an online campus directory. Steve Wozniak revolutionized the personal computer, but Steve just wanted to build his own personal computer. See the pattern? Paul wrote a piece about his first startup failure called “[The Artix Phase](http://www.paulgraham.com/bronze.html?viewfullsite=1),” where he empirically learned all the wrong ways to go about startup ideas. And his writing has helped me tremendously in identifying the mistakes I made in the ideation phase that ultimately led to my startup failing despite having significant traction initially.
+
+[Ideas for Startups](http://www.paulgraham.com/ideas.html) essay
+[Why Smart People Have Bad Ideas](http://www.paulgraham.com/bronze.html) essay
+[How to Start a Startup](http://www.paulgraham.com/start.html) essay
+[Organic Startup Ideas](http://www.paulgraham.com/organic.html) essay
+[Frighteningly Ambitious Startup Ideas](http://www.paulgraham.com/ambitious.html) essay
+[How to Get Startup Ideas](http://www.paulgraham.com/startupideas.html) essay
+[Crazy New Ideas](http://www.paulgraham.com/newideas.html) essay
+[Six Principles For Making New Things](http://www.paulgraham.com/newthings.html?viewfullsite=1) essay
+[What are some common mistakes founders make?](https://www.youtube.com/watch?v=845O4RE1XDM) Video
+
+**Sam Altman**
+
+Sam Altman blogs, codes, and invests through Y Combinator which he led as President for several years. Sam Altman once pointed out that taking your time to come up with an idea is not merely a better strategy in an absolute sense, but also like an undervalued stock in that so few founders do it. I couldn’t agree more with this statement. In my first two startups I just jumped in without deeply understanding the idea maze. It’s imperative that you drill deep and find those undervalued stocks instead of following trends.
+
+[https://blog.samaltman.com/idea-generation](https://blog.samaltman.com/idea-generation) essay
+[https://blog.samaltman.com/projects-and-companies](https://blog.samaltman.com/projects-and-companies) essay
+
+**Balaji Srinivasan**
+
+Balaji Srinivasan coined the phrase “idea maze,” as I mentioned above, to describe the headwinds and tailwinds and ideas one faces when entering the market. Besides coining phrases, Balaji is well known for starting, investing, operating, and selling impactful technology companies. The “idea maze” resonated with me because I took our startup down an idea maze without truly understanding the intricacies of the space. For example, Delyte’s model required that we operate a warehouse where we stored our inventory; more than the overhead, the most challenging part was the labor of dealing with physical space and inventory, and a low-margin business with intensive overhead and physical labor is not a good formula for business. If I had looked deeper into the maze of the idea, and learned about webvan or Pets.com, I would have realized that I was taking our company down a fatal idea maze. The next founder on this guide, Chris Dixon, also wrote an article on [The idea maze](https://cdixon.org/2013/08/04/the-idea-maze) from his perspective that I highly recommend reading.
+
+[Startup engineering course](https://github.com/ladamalina/coursera-startup)
+
+**Chris Dixon**
+
+Chris made the creative and insightful statement I mentioned above. "All the good ideas that actually look like good ideas are already taken by big companies, and us founders and investors compete in the business of the leftovers.” Chris invests in technology startups through a16z venture firm where he has been a partner since 2012. He’s now leading the firm's a16z crypto division which invests in web3 technologies where he oversees a $3B fund. Chris has also had two successful startup exits as a founder. His blog post [Developing new startup ideas](https://cdixon.org/2010/03/14/developing-new-startup-ideas) will provide you with a practical and simple framework to work through a list of ideas. Which is exactly the method I use to treat my ideas like a stock portfolio, and you should too.
+
+[Chris Dixon at Startup School 2013](https://www.youtube.com/watch?v=akOazwgDiSI) video
+[The idea maze](https://cdixon.org/2013/08/04/the-idea-maze) post
+[The great ideas have come from people who weren’t paid to have great ideas](https://cdixon.org/2014/10/20/for-every-new-good-idea-you-have-there-ten-thousand-foolish-ones) post
+[Developing new startup ideas](https://cdixon.org/2010/03/14/developing-new-startup-ideas) post
+[When should you give up on an idea?](https://cdixon.org/2012/05/24/when-should-you-give-up-on-an-idea) post
+[A lot of the best tech startups are ideas that have been around for years](https://cdixon.org/2014/10/15/a-lot-of-the-best-tech-startups-are-ideas-that-have-been-around-for-years) post
+[There's just a tremendous amount of craftsmanship in between a great idea and a great product](https://cdixon.org/2014/03/16/theres-just-a-tremendous-amount-of-craftsmanship-in-between-a-great-idea-and-a-great-product) post
+[Why you shouldn’t keep your startup idea secret](https://cdixon.org/2009/08/22/why-you-shouldnt-keep-your-startup-idea-secret) post
+[And then, suddenly, it works](https://cdixon.org/2012/02/11/and-then-suddenly-it-works) post
+[“Meaningful” startups](https://cdixon.org/2012/04/18/meaningful-startups) post
+[The next big thing will start out looking like a toy](https://cdixon.org/2010/01/03/the-next-big-thing-will-start-out-looking-like-a-toy) post
+
+**Brad Feld**
+
+Brad writes and speaks on the topics of venture capital investing and entrepreneurship. He’s written a number of books as part of the [Startup Revolution](https://www.startuprev.com/) series and writes the blog [Feld Thoughts](https://www.feld.com/). Brad also co-founded the second most recognizable accelerator in the world (behind YC) Techstars. Brad’s view is that startups should be a continuum of ideas, but in my opinion, he forgot to include that there are also ideas you should avoid.
+
+[Startup is a continuum of ideas](https://feld.com/archives/tag/ideas)
+
+**Fred Wilson**
+
+Fred Wilson co-founded Union Square Ventures, a New York City-based venture capital firm with investments in Web 2.0 companies such as Twitter, Tumblr, Foursquare, Zynga, Kickstarter, Etsy and MongoDB. Fred also blogs quite frequently at [https://avc.com/](https://avc.com/).
+
+[Draw Your Ideas (Jack Dorsey)](https://avc.com/2010/05/draw-your-ideas/) video
+[Is This A Good Startup Idea?](https://avc.com/2015/02/is-this-a-good-startup-idea/) post
+[Where Good Ideas Come From](https://avc.com/2010/09/where-good-ideas-come-from/) post
+[Execution Matters, Ideas Don't](https://avc.com/2004/06/execution_matte-2/) post
+[Cloning Successful Startups](https://avc.com/2012/04/cloning-successful-startups/) post
+
+**Courtland Allan**
+
+Courtland Allan founded [IndieHackers.com](http://indiehackers.com) August 2016, Indie Hacker is a community where the founders of profitable businesses and side projects share their stories, and sold it to Stripe in April 2017. Courtland now runs the Indie Hackers team at Stripe. Indie Hacker is a great network to connect, share, and learn from other tech entrepreneurs.
+
+[How to brainstorm great business ideas](https://www.indiehackers.com/post/how-to-brainstorm-great-business-ideas-ab51c3d51c) post
+
+**Daniel Gross**
+
+Daniel Gross co-founded Cue in 2013 and later sold it to Apple where he led machine learning efforts until joining Y Combinator as a partner in January 2017. Gross also invests in tech startups and contributes to the technology news site TechCrunch. He also co-founded [Pioneer](https://pioneer.app/), an online gamified accelerator for early-stage startups.
+
+[How To Go From Idea To Series A](https://dcgross.com/how-to-go-from-idea-to-a/) video
+[How To Decide What To Build](https://dcgross.com/decide-what-to-build/) post
+[10X: Metrics for Early Stage Startups](https://dcgross.com/10X/) post
+[Finding the right idea](https://pioneer.app/codex/idea) post
+
+**Peter Thiel**
+
+Peter Thiel founded PayPal, a global payment service which he later sold for 1.5 billion. He also invested early in Facebook when many other savvy investors thought it was a bad idea. He authored the book [Zero to One](https://www.amazon.com/Zero-One-Notes-Startups-Future/dp/0804139296), a must read for all founders. Peter also came up with the Venn diagram you saw above.
+
+[Competition is for Losers with Peter Thiel](https://www.youtube.com/watch?v=3Fx5Q8xGU8k) video
+
+**Aaron Harris**
+
+Aaron Harris co-founded Tutorspree, which was funded by Y Combinator in 2011. Aaron invests in and advises founders and startups. He also was a partner at Y Combinator for 7.5 years where he funded over 1000 companies, and during that time he built the Series A program which helped founders raise 200+ Series As. And maybe he’s willing to provide feedback on your [deck](https://www.aaronkharris.com/deck-review). Make sure to do your homework before you reach out.
+
+[Why Build Toys](https://blog.aaronkharris.com/why-build-toys) post
+
+**Paul Buchheit**
+
+Paul T. Buchheit created the world’s most popular email client, Gmail. He developed the original prototype of Google AdSense as part of his work on Gmail. He also suggested Google’s former company motto “Don’t be evil” in a 2000 meeting on company values. He also came up with the famous quote “Live in the future, then build what's missing.”
+
+[Three types of ideas - bad ones are often the best](http://paulbuchheit.blogspot.com/2007/06/three-types-of-ideas.html) post
+[Ideas vs Judgment and Execution: Climbing the Mountain](http://paulbuchheit.blogspot.com/2008/03/ideas-vs-judgment-and-execution_9197.html) post
+
+**Garry Tan**
+
+Garry Tan co-founded Initialized Capital with Alexis Ohanian in 20. He previously co-founded Posterous and Posthaven. He was also a partner at Y Combinator from 2011 to 2015. Garry creates and publishes insightful videos on his [Youtube channel](https://www.youtube.com/channel/UCIBgYfDjtWlbJhg--Z4sOgQ) you should checkout.
+
+[Billion dollar startup ideas](https://www.youtube.com/watch?v=3YKNr-LiblI) post
+[Should you work on that startup idea? Ask why me, why now](https://blog.garrytan.com/should-you-work-on-that-startup-idea-ask-why-me-why-now) post
+[One exception to the solve your own problem approach to startup ideas](https://blog.garrytan.com/one-exception-to-the-solve-your-own-problem-approach-to-startup-ideas) post
+[The most common startup ideas](https://blog.garrytan.com/tag/startup%20ideas) post
+
+**Y Combinator**
+
+[Y Combinator](https://www.ycombinator.com/) invests in early-stage startups around the world and provides them with the resources, knowledge, and tools they need to grow into thriving companies. They’re the bedrock of some of the world's most recognized technology companies. Their flagship seed investment was in a company we all know today as Airbnb. Paul Graham founded and launched Y Combinator in 2005. Read the story of their early days [here](http://www.paulgraham.com/ycstart.html).
+
+[Kevin Hale - How to Evaluate Startup Ideas](https://www.youtube.com/watch?v=DOtCl5PU8F0) video
+[How to Get and Test Startup Ideas - Michael Seibel](https://www.youtube.com/watch?v=vDXkpJw16os) video
+[Developing Ideas for Startups by President of Y Combinator & Cofounder of Facebook](https://www.youtube.com/watch?v=O_40XFbsM80) video
+[How to Get Startup Ideas](https://www.ycombinator.com/library/8g-how-to-get-startup-ideas) video
+
+**Additional helpful articles**
+
+[Painkillers vs. Vitamins](https://medium.com/strategy-dynamics/painkillers-vs-vitamins-d3bcdc76ddd31) post
+[Know Your Customers’ “Jobs to Be Done”](https://hbr.org/2016/09/know-your-customers-jobs-to-be-done) post
+[How to Write Jobs to Be Done Example Statements](https://brianrhea.com/jobs-to-be-done-examples/) post
+[Fundamentals of Jobs-To-Be-Done Theory](https://strategyn.com/jobs-to-be-done/jobs-to-be-done-theory/) post
+[Founder Market Fit: How to Create Painkillers Not Vitamins](https://medium.com/swlh/founder-market-fit-how-to-create-painkillers-not-vitamins-8994bb838a21) post
+[How to Choose Your Startup Idea](https://www.sequoiacap.com/article/how-to-choose-your-startup-idea/) post
+
+There’s so much more I could say about the amazing founders in this guide, but that’s a good starting point for you to get to know them (if you don’t already).
+
+Noticing great ideas is a skill you can develop over time. When you deliberately think about problems and the occasional shifts occurring in the world around us, you’ll find that noticing situations that unlock opportunities will start to feel natural to you.
+
+Best of luck!`,
+  },
   {
     date: "Feb 13, 2024",
     title: "Write Less Convoluted ViewModels with Subscripts",
