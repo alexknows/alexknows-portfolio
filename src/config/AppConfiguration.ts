@@ -12,7 +12,7 @@ export interface About {
   imageURL?: string;
   title: string;
   subtitle: string;
-  text: string;
+  text: string | string[];
   seeMoreText: string[];
 }
 export interface Page {
@@ -103,18 +103,26 @@ const AppConfig: AppConfigInterface = {
   about: {
     imageURL: "/assets/alex.jpg",
     title: "Alex Cruz",
-    subtitle: "E-commerce, poker, and software.",
-    text: `After 10 years as a software engineer, I'm focused on two paths: e-commerce and a poker training app. I write about the experiments, the go-to-market, and what I'm learning along the way.`,
+    subtitle: "E-commerce, poker, and agentic engineering.",
+    text: [
+      `Sept. 4, 2026 — About a decade in tech.`,
+      `Never did I imagine I would take such a path growing up. I didn't even know how such a path would work. But what I did know was that useful software products were fun and empowering, and one day I decided: I'm going for it.`,
+      `Looking forward to decade number dos. Where instead of writing if statements and functions, I'll guide and lead a team of agents to build digital products that are not only useful, but purposeful.`
+    ],
     seeMoreText: [
-      `Bullets:`,
+      `A few highlights along the way:`,
       `• Mentored for three years by an industry pioneer who brought to market a revolutionary product still used today.`,
-      `• Overhauled the onboarding layer of the world's largest creator commerce platform with a GMV > $12 billion and tens of millions of users.`,
-      `• Built from scratch, 3 iPad applications used by aviation companies such as JetBlue and Air Canada.`,
-      `• Developed from scratch two crypto-wallets with a flow of value in the tens of millions. `,
-      `Most recent accomplishments`, 
-      `At LTK as a Senior iOS Developer. A global creator commerce platform, LTK empowers thousands of digital lifestyle influencers to achieve economic success. I LTK I overhauled our legacy onboarding and authentication technology by leveraging modern authentication best practices to simplify new-user registration with various IDPs (FB, Gmail, Apple login, etc.) while maintaining the highest standards of modern security practices.`,
-      `Followed by, being the Tech Lead at Minnect. A marketplace to book 1:1 video calls with experts. In my short stint at Minnect, I successfully led an aggressive 8-week goal to redesign Minnect’s native iOS, Android, and web app and a significant change of the core Q&A functionality to a modern chat-like interface using Swift, Jetpack Compose, and REST API, which increased engagements between experts and users and overall earnings for experts by ~10x.`,
-      `Currently at Wamy, I build and deploy production-grade AI systems for a claims-intelligence platform, delivering end-to-end TypeScript applications backed by Supabase and AWS, and shipping retrieval-augmented generation (RAG) pipelines and prompt orchestration that power real-world legal workflows, customer onboarding, and agent-focused automation.`
+      `• Overhauled the onboarding layer of the world's largest creator commerce platform, with a GMV of more than $12 billion and tens of millions of users.`,
+      `• Built from scratch three iPad applications used by aviation companies such as JetBlue and Air Canada.`,
+      `• Developed from scratch two crypto wallets with tens of millions of dollars in value flowing through them.`,
+      `Most recent chapters`,
+      `• Co-Founded & Bootstrapped a startup to ~$1M in under a year.`,
+      `• Pitched several notable investors, such as Y Combinator, Techstars, Ashton Kutcher, and many more.`,
+      `At LTK, as a Senior iOS Developer, I worked on a global creator commerce platform that empowers thousands of digital lifestyle influencers to achieve economic success. I overhauled our legacy onboarding and authentication technology, leveraging modern authentication practices to simplify new-user registration across multiple identity providers—Facebook, Google, Apple, and others—while maintaining high security standards.`,
+      `Followed by Minnect, where I served as Tech Lead for a marketplace that lets users book 1:1 video calls with experts. During my short stint there, I led an aggressive eight-week effort to redesign Minnect's native iOS, Android, and web apps, while transforming the core Q&A experience into a modern chat-like interface using Swift, Jetpack Compose, and REST APIs. The changes increased engagement between experts and users and helped drive roughly a 10x increase in expert earnings.`,
+      `Then Wamy, where I built and deployed production-grade AI systems for a claims-intelligence platform—delivering end-to-end TypeScript applications backed by Supabase and AWS, along with RAG pipelines and prompt orchestration powering real-world legal workflows, customer onboarding, and agent-focused automation.`,
+      `Then I joined Residence Supply, a rapidly growing DTC e-commerce brand generating tens of millions of dollars on top of fragile infrastructure and sprawling SaaS systems. I built an internal operating platform from scratch that unified data and workflows across the business, replacing fragmented processes with purpose-built software and automation.`,
+      `And now, I'm an AI Engineer and Forward Deployed Engineer at Stationed AI, currently deployed at Atomic VC, where I work closely with several portfolio companies to rapidly identify problems, build AI-powered systems and experiments, and turn messy operational workflows into working software.`
     ]
   },
   blogPosts: blogPostsWithContent,

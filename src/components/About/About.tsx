@@ -144,7 +144,17 @@ const About = (props: any) => {
           </div>
         </Grid>
         <Grid container dir="column" item>
-          <Typography variant="body1">{about.text}</Typography>
+          {(Array.isArray(about.text) ? about.text : [about.text]).map(
+            (paragraph, index) => (
+              <Typography
+                key={`intro-${index}`}
+                variant="body1"
+                style={{ marginBottom: 10 }}
+              >
+                {paragraph}
+              </Typography>
+            )
+          )}
           <Collapse in={seeMore}>
             {seeMoreText.map((text, index) => (
               <Typography

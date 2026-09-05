@@ -4,29 +4,21 @@ import { getPostTrack } from "../../config/AppConfiguration";
 import PostList from "../../components/PostList";
 import { usePosts } from "../../context/PostsContext";
 
-const examples = [
-  {
-    title: "Kiln",
-    subtitle: "Small-batch kitchenware, sold direct",
-    text:
-      "Placeholder for the first e-commerce experiment — a short catalog, checkout, and an early paid-acquisition test. More will go here.",
-  },
-];
-
 const useStyles = makeStyles((theme: Theme) => ({
   intro: {
     marginTop: theme.spacing(2),
     marginBottom: theme.spacing(2),
     maxWidth: 560,
   },
-  example: {
-    textAlign: "center",
-    margin: theme.spacing(8, 0, 0, 0),
+  comingSoon: {
+    marginTop: theme.spacing(6),
+    maxWidth: 560,
   },
-  exampleBody: {
-    textAlign: "left",
-    marginTop: theme.spacing(3),
-    lineHeight: "24px",
+  comingSoonTitle: {
+    marginBottom: theme.spacing(0.5),
+  },
+  comingSoonBody: {
+    marginTop: theme.spacing(2),
   },
   notes: {
     marginTop: theme.spacing(8),
@@ -47,18 +39,23 @@ const CommerceView = () => {
     <Zoom in={true} style={{ transitionDelay: "150ms" }}>
       <div>
         <Typography variant="body1" className={classes.intro}>
-          Experiments and go-to-market on this track. More projects will land
-          here.
+          This track is for operators who already have a store — and need it to
+          grow without drowning in SaaS, spreadsheets, and fragile ops.
         </Typography>
-        {examples.map((example) => (
-          <div key={example.title} className={classes.example}>
-            <Typography variant="h1">{example.title}</Typography>
-            <Typography variant="h2">{example.subtitle}</Typography>
-            <Typography variant="body2" className={classes.exampleBody}>
-              {example.text}
-            </Typography>
-          </div>
-        ))}
+        <div className={classes.comingSoon}>
+          <Typography variant="h1" className={classes.comingSoonTitle}>
+            Coming soon
+          </Typography>
+          <Typography variant="h2">
+            Strategies, tools, and systems for growing an e-commerce business.
+          </Typography>
+          <Typography variant="body1" className={classes.comingSoonBody}>
+            Playbooks you can run, tools you can actually use, and the unglamorous
+            internal systems that keep a DTC brand moving — acquisition tests,
+            operator workflows, and the glue between the apps a store already pays
+            for. Notes from the work will land here as they ship.
+          </Typography>
+        </div>
         <div className={classes.notes}>
           <Typography variant="h1" className={classes.notesHeader}>
             Notes

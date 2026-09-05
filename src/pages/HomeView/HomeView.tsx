@@ -28,7 +28,7 @@ const tracks = [
     to: "/ecommerce",
     title: "E-commerce",
     text:
-      "Experiments and go-to-market on this track. More projects will land here.",
+      "Coming soon: strategies, tools, and systems for growing an e-commerce business.",
   },
   {
     to: "/poker",
