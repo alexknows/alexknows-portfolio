@@ -1,6 +1,6 @@
 import React from "react";
 import { Zoom, Typography, makeStyles, Theme } from "@material-ui/core";
-import AppConfig, { Section, getPostTrack } from "../../config/AppConfiguration";
+import AppConfig, { getPostTrack } from "../../config/AppConfiguration";
 import { SectionBuilder } from "../../components";
 import PostList from "../../components/PostList";
 import { usePosts } from "../../context/PostsContext";
@@ -22,9 +22,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 const PokerView = () => {
   const classes = useStyles();
   const { posts } = usePosts();
-  const magnus = AppConfig.pages.ios.sections.find((section) =>
-    (section.title || "").includes("Magnus")
-  ) as Section | undefined;
+  const magnus = AppConfig.poker;
   const notes = posts
     .map((post, index) => ({ post, index }))
     .filter(({ post }) => getPostTrack(post) === "poker");

@@ -59,6 +59,7 @@ export interface AppConfigInterface {
   skills: Skill[];
   about: About;
   pages: Pages;
+  poker: Section;
   blogPosts: BlogPost[];
 }
 const AppConfig: AppConfigInterface = {
@@ -329,7 +330,7 @@ const AppConfig: AppConfigInterface = {
           assetsFolderName: "IOS/Magnus",
           imagesType: "multiple",
           title: "Magnus Poker AI (2024)",
-          subtitle: "Range Construction Trainer",
+          subtitle: "Hand Reading Mastery Framework",
           headerImage: "logo.jpg",
           images: ["1.jpg", "2.jpg", "3.jpg", "4.jpg"],
           text: `Magnus will help you build and refine a robust hand reading and decision making mental framework. It will help you go 
@@ -553,6 +554,17 @@ const AppConfig: AppConfigInterface = {
         }
       ]
     }
+  },
+  poker: {
+    link: "",
+    headerImageType: "square",
+    assetsFolderName: "IOS/Magnus2026",
+    imagesType: "multiple",
+    title: "Magnus Poker AI (2026)",
+    subtitle: "Hand Reading Mastery Framework",
+    headerImage: "logo.jpg",
+    images: ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg", "7.jpg", "8.jpg"],
+    text: `Solve no-limit poker hands like Sherlock Holmes solves criminal cases. Narrow your opponent's range with precision. Use every clue to make consistently +EV decisions.`
   }
 };
 
