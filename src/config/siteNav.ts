@@ -7,12 +7,12 @@ export interface NavItem {
 
 export const siteNav: NavItem[] = [
   { to: "/", label: "Home", exact: true },
+  { to: "/poker", label: "Poker" },
   {
     to: "/ecommerce",
     label: "E-commerce",
     matchPrefixes: ["/ecommerce", "/commerce"],
   },
-  { to: "/poker", label: "Poker" },
   {
     to: "/past-projects/ios",
     label: "Past projects",

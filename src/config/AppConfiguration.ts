@@ -556,7 +556,7 @@ const AppConfig: AppConfigInterface = {
     }
   },
   poker: {
-    link: "",
+    link: "https://www.magnuspoker.xyz/",
     headerImageType: "square",
     assetsFolderName: "IOS/Magnus2026",
     imagesType: "multiple",
