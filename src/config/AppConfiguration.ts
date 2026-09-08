@@ -104,7 +104,7 @@ const AppConfig: AppConfigInterface = {
   about: {
     imageURL: "/assets/alex.jpg",
     title: "Alex Cruz",
-    subtitle: "E-commerce, poker, and agentic engineering.",
+    subtitle: "Agentic engineering, E-commerce, and poker.",
     text: [
       `Sept. 4, 2026 — About a decade in tech.`,
       `Never did I imagine I would take such a path growing up. I didn't even know how such a path would work. But what I did know was that useful software products were fun and empowering, and one day I decided: I'm going for it.`,
