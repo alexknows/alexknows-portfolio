@@ -563,7 +563,7 @@ const AppConfig: AppConfigInterface = {
     title: "Magnus Poker AI (2026)",
     subtitle: "Hand Reading Mastery Framework",
     headerImage: "logo.jpg",
-    images: ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg", "7.jpg", "8.jpg"],
+    images: ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg"],
     text: `Solve no-limit poker hands like Sherlock Holmes solves criminal cases. Narrow your opponent's range with precision. Use every clue to make consistently +EV decisions.`
   }
 };
