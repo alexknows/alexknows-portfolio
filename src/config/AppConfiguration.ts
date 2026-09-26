@@ -62,6 +62,15 @@ export interface AppConfigInterface {
   poker: Section;
   blogPosts: BlogPost[];
 }
+
+const magnus2026Screenshots = [
+  "Magnus-01-1284x2778.png",
+  "Magnus-02-1284x2778.png",
+  "Magnus-03-1284x2778.png",
+  "Magnus-04-1284x2778.png",
+  "Magnus-05-1284x2778.png"
+];
+
 const AppConfig: AppConfigInterface = {
   skills: [
     {
@@ -327,12 +336,12 @@ const AppConfig: AppConfigInterface = {
         {
           link: "",
           headerImageType: "square",
-          assetsFolderName: "IOS/Magnus",
+          assetsFolderName: "IOS/Magnus2026",
           imagesType: "multiple",
           title: "Magnus Poker AI (2024)",
           subtitle: "Hand Reading Mastery Framework",
           headerImage: "logo.jpg",
-          images: ["1.jpg", "2.jpg", "3.jpg", "4.jpg"],
+          images: magnus2026Screenshots,
           text: `Magnus will help you build and refine a robust hand reading and decision making mental framework. It will help you go 
           beyond the low hanging fruits to reach the next-level of your development by helping you improve at the margins.`
         },
@@ -563,7 +572,7 @@ const AppConfig: AppConfigInterface = {
     title: "Magnus Poker AI (2026)",
     subtitle: "Hand Reading Mastery Framework",
     headerImage: "logo.jpg",
-    images: ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg"],
+    images: magnus2026Screenshots,
     text: `Solve no-limit poker hands like Sherlock Holmes solves criminal cases. Narrow your opponent's range with precision. Use every clue to make consistently +EV decisions.`
   }
 };
