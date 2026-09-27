@@ -1,7 +1,7 @@
 import React from "react";
 import { Link as RouterLink } from "react-router-dom";
 import { Zoom, Typography, Link, makeStyles, Theme } from "@material-ui/core";
-import { getPostTrack } from "../../config/blogPostsData";
+import { MAGNUS_LINKS, getPostTrack } from "../../config/AppConfiguration";
 import PostList from "../../components/PostList";
 import { usePosts } from "../../context/PostsContext";
 
@@ -74,6 +74,9 @@ const useStyles = makeStyles((theme: Theme) => ({
     color: "#e4ddd0",
   },
   featuredLinks: {
+    display: "flex",
+    flexWrap: "wrap",
+    gap: theme.spacing(0, 2),
     marginTop: theme.spacing(1.5),
     "& a": {
       color: "#c5e0b8",
@@ -81,9 +84,6 @@ const useStyles = makeStyles((theme: Theme) => ({
         color: "#f4efe4",
       },
     },
-  },
-  featuredNotes: {
-    marginLeft: theme.spacing(2),
   },
   tracks: {
     marginBottom: theme.spacing(6),
@@ -111,7 +111,7 @@ const HomeView = () => {
       <div className={classes.root}>
         <div className={classes.featured}>
           <a
-            href="https://www.magnuspoker.xyz/"
+            href={MAGNUS_LINKS.website}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -124,7 +124,7 @@ const HomeView = () => {
           <div className={classes.featuredCopy}>
             <Typography variant="h1" className={classes.featuredTitle}>
               <Link
-                href="https://www.magnuspoker.xyz/"
+                href={MAGNUS_LINKS.website}
                 target="_blank"
                 rel="noopener noreferrer"
                 color="inherit"
@@ -143,20 +143,28 @@ const HomeView = () => {
             </Typography>
             <Typography variant="body2" className={classes.featuredLinks}>
               <Link
-                href="https://www.magnuspoker.xyz/"
+                href={MAGNUS_LINKS.website}
                 target="_blank"
                 rel="noopener noreferrer"
                 color="inherit"
                 underline="hover"
               >
-                magnuspoker.xyz
+                Website
+              </Link>
+              <Link
+                href={MAGNUS_LINKS.appStore}
+                target="_blank"
+                rel="noopener noreferrer"
+                color="inherit"
+                underline="hover"
+              >
+                App Store
               </Link>
               <Link
                 component={RouterLink}
                 to="/poker"
                 color="inherit"
                 underline="hover"
-                className={classes.featuredNotes}
               >
                 Notes from building it
               </Link>

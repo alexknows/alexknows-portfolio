@@ -4,6 +4,7 @@ export { default as Topbar } from "./Topbar";
 export { default as Footer } from "./Footer";
 export { default as CircularSkills } from "./CircularSkills";
 export { default as About } from "./About";
+export { default as AppStoreIcon } from "./AppStoreIcon";
 export { default as SectionBuilder } from "./SectionBuilder";
 export { default as SiteNav } from "./SiteNav";
 export { default as PostList } from "./PostList";

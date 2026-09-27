@@ -10,7 +10,8 @@ import {
   Grid,
   Typography,
   Button,
-  Collapse
+  Collapse,
+  Link
 } from "@material-ui/core";
 
 interface SectionBuilderProps {
@@ -47,6 +48,20 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   none: {
 
+  },
+  projectLinks: {
+    display: "flex",
+    justifyContent: "center",
+    flexWrap: "wrap",
+    gap: theme.spacing(0, 2),
+    marginTop: theme.spacing(0.5),
+    "& a": {
+      color: theme.palette.text.secondary,
+      fontSize: "0.9rem",
+      "&:hover": {
+        color: theme.palette.primary.main
+      }
+    }
   }
 }));
 const SectionBuilder = (props: SectionBuilderProps) => {
@@ -83,21 +98,29 @@ const SectionBuilder = (props: SectionBuilderProps) => {
     );
   };
   const drawTopSection = () => {
-    const { title, subtitle, headerImage, link } = section;
+    const { title, subtitle, headerImage, link, websiteLink, appStoreLink } = section;
+    const headerHref = websiteLink || link;
     const headerImgPath = headerImage
       ? require(`../../assets/images/${section.assetsFolderName}/${headerImage}`)
       : null;
+    const headerImageEl = headerImgPath ? (
+      <img
+        className={classes[section.headerImageType]}
+        src={headerImgPath}
+        alt=""
+      />
+    ) : null;
     return (
       <Grid spacing={2} container justifyContent="center" direction="column">
-        {headerImgPath && (
+        {headerImageEl && (
           <Grid item>
-            <a href={link} target="_blank" rel="noreferrer">
-              <img
-                className={classes[section.headerImageType]}
-                src={headerImgPath}
-                alt=""
-              />
-            </a>
+            {headerHref ? (
+              <a href={headerHref} target="_blank" rel="noreferrer">
+                {headerImageEl}
+              </a>
+            ) : (
+              headerImageEl
+            )}
           </Grid>
         )}
         <Grid item>
@@ -106,6 +129,34 @@ const SectionBuilder = (props: SectionBuilderProps) => {
         <Grid item>
           <Typography variant="h2">{subtitle ? subtitle : ""}</Typography>
         </Grid>
+        {(websiteLink || appStoreLink) && (
+          <Grid item>
+            <div className={classes.projectLinks}>
+              {websiteLink && (
+                <Link
+                  href={websiteLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  color="inherit"
+                  underline="hover"
+                >
+                  Website
+                </Link>
+              )}
+              {appStoreLink && (
+                <Link
+                  href={appStoreLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  color="inherit"
+                  underline="hover"
+                >
+                  App Store
+                </Link>
+              )}
+            </div>
+          </Grid>
+        )}
       </Grid>
     );
   };

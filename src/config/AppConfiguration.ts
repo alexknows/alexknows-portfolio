@@ -41,6 +41,11 @@ export interface SeeMoreMetadata {
   toggledText: string;
   unToggledText: string;
 }
+export const MAGNUS_LINKS = {
+  website: "https://www.magnuspoker.xyz/",
+  appStore: "https://apps.apple.com/us/app/magnus-poker/id6809057077"
+};
+
 export interface Section {
   imagesType: "multiple" | "single";
   headerImage?: string;
@@ -52,6 +57,8 @@ export interface Section {
   headerImageType: "wide" | "square";
   seeMoreMetadata?: SeeMoreMetadata;
   link: string;
+  websiteLink?: string;
+  appStoreLink?: string;
 }
 export type { BlogPost, NoteTrack } from "./blogPostsData";
 export { getPostTrack, noteTrackLabels, slugify, ensurePostId } from "./blogPostsData";
@@ -334,7 +341,9 @@ const AppConfig: AppConfigInterface = {
       styles: makeStyles((theme: Theme) => iosSectionStyles),
       sections: [
         {
-          link: "",
+          link: MAGNUS_LINKS.website,
+          websiteLink: MAGNUS_LINKS.website,
+          appStoreLink: MAGNUS_LINKS.appStore,
           headerImageType: "square",
           assetsFolderName: "IOS/Magnus2026",
           imagesType: "multiple",
@@ -565,7 +574,9 @@ const AppConfig: AppConfigInterface = {
     }
   },
   poker: {
-    link: "https://www.magnuspoker.xyz/",
+    link: MAGNUS_LINKS.website,
+    websiteLink: MAGNUS_LINKS.website,
+    appStoreLink: MAGNUS_LINKS.appStore,
     headerImageType: "square",
     assetsFolderName: "IOS/Magnus2026",
     imagesType: "multiple",
