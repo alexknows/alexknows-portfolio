@@ -34,6 +34,45 @@ export const getPostTrack = (post: BlogPost): NoteTrack =>
 
 export const blogPostsWithContent: BlogPost[] = [
   {
+    date: "Sep 27, 2026",
+    id: "why-you-need-a-passion-project-that-doubles-as-your-sandbox",
+    title: "Why You Need a Passion Project That Doubles as Your Sandbox",
+    excerpt:
+      "About two and a half years ago I opened Xcode and started Magnus Poker. What I didn’t realize then was that I wasn’t just building an app I cared about. I was giving myself a sandbox I wouldn’t throw away.",
+    url:
+      "https://alexknows.biz/notes/why-you-need-a-passion-project-that-doubles-as-your-sandbox",
+    track: "poker",
+    content: `About two and a half years ago I opened Xcode and started writing Magnus Poker. I didn’t have a grand plan for what the stack would look like years later. I had a problem I actually wanted to solve—hand reading—and a blank project. That combination turned out to matter more than any particular tool I picked that first night.
+
+If you spend your career learning technology the way I did at the beginning, you know the loop. You get curious about a new framework. You spin up a small prototype of something. You learn just enough to feel current. Then you forget about it, because there was nothing pulling you back. A few months later a new tool shows up, and you do it again. You stay busy. You do not get deep.
+
+The counterintuitive move is to pick one project you are passionate about and let it be the sandbox.
+
+That sounds like mixing two jobs that should stay separate. A passion project is supposed to be the thing you love. A sandbox is supposed to be disposable. But those two jobs, married together, are how you actually grow. The passion is what keeps you from abandoning the codebase the moment the tutorial is over. The sandbox is what gives you permission to try the new tool inside a real product instead of a throwaway demo.
+
+Magnus became that marriage for me.
+
+Because I kept coming back to the same product, I had to live through the parts of software nobody puts in a “getting started” guide. You really learn how to manage the different life cycles of a technology product. You update language versions, SDKs, and operating systems, not because a blog post told you to, but because the app you care about will stop compiling if you don’t. You swap one third-party service for another when the old one gets expensive, or slow, or acquired, or simply worse than the alternative. You migrate. Then you migrate again.
+
+Those migrations are where the real engineering happens. A prototype never forces you to move data from one shape to another without breaking the people already using it. A prototype never teaches you what it feels like to change the foundation while the house is still occupied. A passion project that lives for years will.
+
+Eventually I started using agentic engineering the same way. Not as a separate experiment sitting off to the side, but inside Magnus. The agents didn’t replace the product. They sat inside the same sandbox I had already been tending for years. That meant the migrations from one technology to another were not theoretical. I could try a new way of writing software and immediately see whether it helped me ship the next version of something that already existed.
+
+At the beginning of my career I didn’t have a project like that. I wasn’t necessarily passionate about any one thing I was building, so I collected skills instead of compounding them. Every new technology got a fresh, tiny app and a short memory. I thought that was how you stayed up to date. It isn’t. Staying up to date is easy. Staying up to date while also getting better at product is the hard part, and you only get that if the thing you’re tinkering with has constraints, a reason to survive the next rewrite, and enough history that the rewrite actually costs you something.
+
+Think of it like poker, because I can’t help myself. You don’t get good by playing a different variant every night and never seeing a hand through to the river. You get good by sitting in the same game long enough to notice the patterns, to update your ranges, and to change seats when the table changes. The passion is why you sit down. The sandbox is why you’re allowed to try a new line without blowing up your whole bankroll.
+
+If you don’t have a project you’re passionate about, the sandbox will always feel optional. You’ll learn the tool, build the prototype, and move on. If you do have one, use it. Let it be the place you try the new thing. Let it be the place you practice version upgrades, vendor swaps, and migrations. Over enough time you won’t just be a more current engineer. You’ll be a better product person, because you will have lived every season of the same product.
+
+That’s the gist of it, and I wish I had started Magnus even earlier.
+
+**Summary**
+
+A passion project that also serves as your sandbox is a great marriage. It keeps you current with the latest technology, it forces you to manage real product life cycles, and it turns all those migrations—human or agentic—into skill instead of churn.
+
+That's all, my friends. I hope this post unblocks you from treating learning and building as two separate hobbies. If you have questions, share them in the comments below. You can also connect with me on LinkedIn and Twitter, where I share all my new posts.`,
+  },
+  {
     date: "Sep 1, 2022",
     id: "the-ultimate-resource-guide-to-discovering-and-selecting-great-startup-ideas",
     title:
